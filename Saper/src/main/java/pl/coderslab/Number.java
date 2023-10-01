@@ -1,14 +1,15 @@
 package pl.coderslab;
 
-public class mine {
-
+public class Number {
     private int x;
-    private int y;
+    private  int y;
+    private int number;
     private String name;
 
-    public mine(int x, int y, String name) {
+    public Number(int x, int y, int number, String name) {
         this.x = x;
         this.y = y;
+        this.number = number;
         this.name = name;
     }
 
@@ -26,6 +27,18 @@ public class mine {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void addNumber() {
+        this.number++;
     }
 
     public String getName() {

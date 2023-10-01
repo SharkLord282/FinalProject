@@ -1,15 +1,13 @@
 package pl.coderslab;
 
-public class number {
+public class EmptySpace {
     private int x;
-    private  int y;
-    private int number;
+    private int y;
     private String name;
 
-    public number(int x, int y, int number, String name) {
+    public EmptySpace(int x, int y, String name) {
         this.x = x;
         this.y = y;
-        this.number = number;
         this.name = name;
     }
 
@@ -27,18 +25,6 @@ public class number {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public void addNumber() {
-        this.number++;
     }
 
     public String getName() {

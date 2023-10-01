@@ -1,11 +1,12 @@
 package pl.coderslab;
 
-public class emptySpace {
+public class Mine {
+
     private int x;
     private int y;
     private String name;
 
-    public emptySpace(int x, int y, String name) {
+    public Mine(int x, int y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;

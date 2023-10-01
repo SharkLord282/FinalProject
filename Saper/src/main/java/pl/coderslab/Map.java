@@ -2,12 +2,12 @@ package pl.coderslab;
 
 import java.util.List;
 
-public class map<T> {
+public class Map<T> {
 
     private List<List<T>> board;
     private String difficulty;
 
-    public map(List<List<T>> board, String difficulty) {
+    public Map(List<List<T>> board, String difficulty) {
         this.board = board;
         this.difficulty = difficulty;
     }
