@@ -1,14 +1,24 @@
 package pl.coderslab;
 
-public class EmptySpace {
+public class Area {
     private int x;
     private int y;
     private String name;
+    private  int number;
 
-    public EmptySpace(int x, int y, String name) {
+
+    public Area(int x, int y, String name, int number) {
         this.x = x;
         this.y = y;
         this.name = name;
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Area{" +
+                 name + " " + number + '\'' +
+                '}';
     }
 
     public int getX() {
@@ -33,5 +43,17 @@ public class EmptySpace {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void increaseNumber() {
+        this.number++;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }
