@@ -1,8 +1,10 @@
 package pl.coderslab.map;
 
+import org.springframework.stereotype.Component;
 import pl.coderslab.Area;
 
 import java.util.List;
+
 
 public class Map {
 

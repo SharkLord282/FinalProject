@@ -1,11 +1,14 @@
 package pl.coderslab.map;
 
+import org.springframework.stereotype.Component;
 import pl.coderslab.Area;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
+@Component
 public class MapGenerator {
 
     public List<List<Area>> createEasyMap(int areax,int areay) {
