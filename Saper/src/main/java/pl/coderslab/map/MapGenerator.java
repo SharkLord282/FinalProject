@@ -13,18 +13,18 @@ public class MapGenerator {
 
     public List<List<Area>> createEasyMap(int areax,int areay) {
         List<List<Area>> board = new ArrayList<>();
-        for (int x = 0; x <= 7 ; x++ ) {
+        for (int y = 0; y <= 7 ; y++ ) {
             List<Area> line = new ArrayList<>();
-            for (int y = 0; y <= 7 ;y++) {
-                line.add(y,new Area(x,y,"emptySpace",0));
+            for (int x = 0; x <= 7 ;x++) {
+                line.add(x,new Area(x,y,"emptySpace",0));
             }
-            board.add(x,line);
+            board.add(y,line);
         }
-        List<Area> line = board.get(areax);
-        Area area = line.get(areay);
+        List<Area> line = board.get(areay);
+        Area area = line.get(areax);
         area.setName("click");
-        line.set(area.getY(), area);
-        board.set(area.getX(),line);
+        line.set(area.getX(), area);
+        board.set(area.getY(),line);
         board = checkAroundAreaAndModify(board, area);
 
         board = mineGenerator(board,10);
@@ -46,8 +46,8 @@ public class MapGenerator {
                 area.setName("bomb");
 
 
-                line.set(area.getY(), area);
-                board.set(area.getX(),line);
+                line.set(area.getX(), area);
+                board.set(area.getY(),line);
                 board = checkAroundAreaAndModify(board, area);
             }else {
                 i--;
@@ -88,8 +88,8 @@ public class MapGenerator {
     }
 
     public List<List<Area>> modifyArea(List<List<Area>> board, Area area ,int x, int y){
-        List<Area> line = board.get(x);
-        Area newArea = line.get(y);
+        List<Area> line = board.get(y);
+        Area newArea = line.get(x);
         if (area.getName().equals("click")) {
             newArea.setName("click");
         }else {
@@ -100,8 +100,8 @@ public class MapGenerator {
                 newArea.increaseNumber();
             }
         }
-        line.set(newArea.getY(), newArea);
-        board.set(newArea.getX(),line);
+        line.set(newArea.getX(), newArea);
+        board.set(newArea.getY(),line);
         return board;
     }
 

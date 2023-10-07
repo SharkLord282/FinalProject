@@ -22,6 +22,10 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new String[] { "/" };
     }
 
+    @Override
+    protected void customizeRegistration(javax.servlet.ServletRegistration.Dynamic registration) {
+        registration.setInitParameter("dispatchOptionsRequest", "true");
+    }
 
 }
 

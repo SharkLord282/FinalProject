@@ -2,11 +2,9 @@ package pl.coderslab.map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.map.MapGenerator;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
@@ -23,11 +21,15 @@ public class MapController {
 
 
     @GetMapping
-    public String boardView(Model model){
-        Map map = new Map(mapGenerator.createEasyMap(4,3), "Easy");
+    public String easyMap(){
+        return "/saperEasyMode";
+    }
+
+    @PostMapping
+    public String easyMap(Model model, @RequestParam int x,@RequestParam int y) {
+        Map map = new Map(mapGenerator.createEasyMap(x,y), "Easy");
 
         model.addAttribute("map", map);
         return "/saperEasyMode";
-
     }
 }
