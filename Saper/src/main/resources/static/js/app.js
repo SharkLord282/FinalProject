@@ -1,23 +1,32 @@
-const buttons = document.getElementsByClassName("areaButton")
-const emptyButtons = document.getElementsByClassName("emptyArea")
-const clickButtons = document.getElementsByClassName("click")
-console.log(Array.from(clickButtons))
-Array.from(clickButtons).forEach((button) => {
-button.click()
-})
-console.log(Array.from(clickButtons))
-Array.from(buttons).forEach((button) => {
-    button.addEventListener("click", handleClick)
-});
+const buttons = document.getElementsByClassName("button")
+let board;
 
-function handleClick() {
-   this.style.display = "none";
-    const square = this.nextElementSibling;
+
+Array.from(buttons).forEach((button) => {
+   button.addEventListener("click", whenClicked)
+})
+
+function whenClicked() {
+    if (board) {
+        handleClick(this)
+    } else {
+        console.log("Brak danych w board");
+        getMap(this)
+        handleClick(this)
+    }
+
+
+}
+
+
+function handleClick(button) {
+    button.style.display = "none";
+    const square = button.nextElementSibling;
     square.style.display = "block";
 
-    if(this.nextElementSibling.classList.contains("emptySpace") || (this.nextElementSibling.classList.contains("click") && !this.nextElementSibling.hasChildNodes())) {
-        const x = parseInt(this.getAttribute('data-x'));
-        const y = parseInt(this.getAttribute('data-y'));
+    if(button.nextElementSibling.classList.contains("emptySpace") || (button.nextElementSibling.classList.contains("click") && !button.nextElementSibling.hasChildNodes())) {
+        const x = parseInt(button.getAttribute('data-x'));
+        const y = parseInt(button.getAttribute('data-y'));
 
         Array.from(buttons).forEach((button) => {
             const buttonx = parseInt(button.getAttribute('data-x'));
@@ -42,11 +51,41 @@ function handleClick() {
 
 }
 
+function getMap(button) {
+    const paramx = button.getAttribute('data-x')
+    const paramy = button.getAttribute('data-y')
+    const area = {
+        x: paramx,
+        y: paramy,
+        name: "click",
+        number: 0
+    };
+    fetch('/saper/easyMap', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(area)
+    })
+        .then(response => response.json())
+        .then(responseData => {
+            board = responseData
+            generateMap()
+        })
+        .catch(error => {
+            console.error('Błąd:', error);
+        });
 
 
-function hideEmptyButtons() {
-    Array.from(emptyButtons).forEach((button) => {
-        button.style.display = "none";
+}
+
+function generateMap() {
+    Array.from(buttons).forEach((button) => {
+        const area = board[button.getAttribute('data-y')][button.getAttribute('data-x')]
+        console.log("button x " + button.getAttribute('data-x') + " y " + button.getAttribute('data-y') + " area x" + area.x + " y " + area.y)
     })
 }
+
+
+
 

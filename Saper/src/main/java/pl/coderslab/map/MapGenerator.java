@@ -11,27 +11,26 @@ import java.util.Random;
 @Component
 public class MapGenerator {
 
-    public List<List<Area>> createEasyMap(int areax,int areay) {
+    public Map createMap(Area clickArea, int sizex, int sizey) {
         List<List<Area>> board = new ArrayList<>();
-        for (int y = 0; y <= 7 ; y++ ) {
+        for (int y = 0; y <= sizey -1 ; y++ ) {
             List<Area> line = new ArrayList<>();
-            for (int x = 0; x <= 7 ;x++) {
+            for (int x = 0; x <= sizex -1 ;x++) {
                 line.add(x,new Area(x,y,"emptySpace",0));
             }
             board.add(y,line);
         }
-        List<Area> line = board.get(areay);
-        Area area = line.get(areax);
-        area.setName("click");
-        line.set(area.getX(), area);
-        board.set(area.getY(),line);
-        board = checkAroundAreaAndModify(board, area);
+
+        List<Area> line = board.get(clickArea.getY());
+        line.set(clickArea.getX(), clickArea);
+        board.set(clickArea.getY(),line);
+        board = checkAroundAreaAndModify(board, clickArea);
 
         board = mineGenerator(board,10);
 
 
-
-        return board;
+        Map map = new Map(board,"easy");
+        return map;
     }
 
     public List<List<Area>> mineGenerator(List<List<Area>> board,int quantity){

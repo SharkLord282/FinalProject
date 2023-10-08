@@ -14,6 +14,9 @@ public class Area {
         this.number = number;
     }
 
+    public Area() {
+    }
+
     @Override
     public String toString() {
         return "Area{" +
