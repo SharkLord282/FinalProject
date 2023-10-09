@@ -22,58 +22,76 @@ function handleClick(button) {
     button.style.display = "none";
     const square = button.nextElementSibling;
     square.style.display = "block";
-
+   console.log(button)
     if(button.nextElementSibling.classList.contains("emptySpace") || (button.nextElementSibling.classList.contains("click") && button.nextElementSibling.getAttribute("number") == 0)) {
         let x = parseInt(button.getAttribute('data-x'));
         let y = parseInt(button.getAttribute('data-y'));
 
-        if (board[y-1] !== undefined && board[y-1][x-1] !== undefined) {
+        if (board[y-1] !== undefined && board[y-1][x-1] !== undefined ) {
             let paramx = x -1
             let paramy = y -1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            console.log(click.style.display)
+            if (click.style.display == "block"){
+                click.click()
+            }
+
         }
         if (board[y-1] !== undefined && board[y-1][x] !== undefined) {
             let paramx = x
             let paramy = y -1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y-1] !== undefined && board[y-1][x+1] !== undefined) {
             let paramx = x +1
             let paramy = y -1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y] !== undefined && board[y][x-1] !== undefined) {
             let paramx = x -1
             let paramy = y
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y] !== undefined && board[y][x+1] !== undefined) {
             let paramx = x +1
             let paramy = y
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y+1] !== undefined && board[y+1][x-1] !== undefined) {
             let paramx = x -1
             let paramy = y +1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y+1] !== undefined && board[y+1][x] !== undefined) {
             let paramx = x
             let paramy = y +1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
         if (board[y+1] !== undefined && board[y+1][x+1] !== undefined) {
             let paramx = x +1
             let paramy = y +1
             const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
-            click.click()
+            if (click.style.display === "block"){
+                click.click()
+            }
         }
 
     }
@@ -119,6 +137,7 @@ function generateMap(paramx,paramy) {
         square.setAttribute("number", area.number);
         square.style.display = 'none';
         button.parentElement.appendChild(square);
+        button.style.display = "block"
     })
 
     const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
