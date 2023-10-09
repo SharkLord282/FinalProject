@@ -12,7 +12,6 @@ function whenClicked() {
     } else {
         console.log("Brak danych w board");
         getMap(this)
-        handleClick(this)
     }
 
 
@@ -24,28 +23,59 @@ function handleClick(button) {
     const square = button.nextElementSibling;
     square.style.display = "block";
 
-    if(button.nextElementSibling.classList.contains("emptySpace") || (button.nextElementSibling.classList.contains("click") && !button.nextElementSibling.hasChildNodes())) {
-        const x = parseInt(button.getAttribute('data-x'));
-        const y = parseInt(button.getAttribute('data-y'));
+    if(button.nextElementSibling.classList.contains("emptySpace") || (button.nextElementSibling.classList.contains("click") && button.nextElementSibling.getAttribute("number") == 0)) {
+        let x = parseInt(button.getAttribute('data-x'));
+        let y = parseInt(button.getAttribute('data-y'));
 
-        Array.from(buttons).forEach((button) => {
-            const buttonx = parseInt(button.getAttribute('data-x'));
-            const buttony = parseInt(button.getAttribute('data-y'));
+        if (board[y-1] !== undefined && board[y-1][x-1] !== undefined) {
+            let paramx = x -1
+            let paramy = y -1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y-1] !== undefined && board[y-1][x] !== undefined) {
+            let paramx = x
+            let paramy = y -1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y-1] !== undefined && board[y-1][x+1] !== undefined) {
+            let paramx = x +1
+            let paramy = y -1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y] !== undefined && board[y][x-1] !== undefined) {
+            let paramx = x -1
+            let paramy = y
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y] !== undefined && board[y][x+1] !== undefined) {
+            let paramx = x +1
+            let paramy = y
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y+1] !== undefined && board[y+1][x-1] !== undefined) {
+            let paramx = x -1
+            let paramy = y +1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y+1] !== undefined && board[y+1][x] !== undefined) {
+            let paramx = x
+            let paramy = y +1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
+        if (board[y+1] !== undefined && board[y+1][x+1] !== undefined) {
+            let paramx = x +1
+            let paramy = y +1
+            const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+            click.click()
+        }
 
-            if (buttonx === x-1 && buttony === y){
-                button.click()
-
-            }
-            if (buttonx === x+1 && buttony === y){
-                button.click()
-            }
-            if (buttonx === x && buttony === y-1){
-                button.click()
-            }
-            if (buttonx === x && buttony === y+1){
-                button.click()
-            }
-        })
     }
 
 
@@ -70,7 +100,7 @@ function getMap(button) {
         .then(response => response.json())
         .then(responseData => {
             board = responseData
-            generateMap()
+            generateMap(area.x, area.y)
         })
         .catch(error => {
             console.error('Błąd:', error);
@@ -79,11 +109,20 @@ function getMap(button) {
 
 }
 
-function generateMap() {
+function generateMap(paramx,paramy) {
+
     Array.from(buttons).forEach((button) => {
         const area = board[button.getAttribute('data-y')][button.getAttribute('data-x')]
-        console.log("button x " + button.getAttribute('data-x') + " y " + button.getAttribute('data-y') + " area x" + area.x + " y " + area.y)
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.classList.add(area.name);
+        square.setAttribute("number", area.number);
+        square.style.display = 'none';
+        button.parentElement.appendChild(square);
     })
+
+    const click = document.querySelector(`[data-x="${paramx}"][data-y="${paramy}"]`)
+       click.click()
 }
 
 

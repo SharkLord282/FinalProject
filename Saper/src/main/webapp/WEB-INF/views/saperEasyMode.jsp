@@ -44,7 +44,9 @@
       <c:forEach var="row" begin="0" end="7">
             <div class="row">
                 <c:forEach var="col" begin="0" end="7">
-                    <button class="square button emptyArea" data-y="${row}" data-x="${col}"></button>
+                    <div>
+                    <button class="square button" data-y="${row}" data-x="${col}"></button>
+                    </div>
                 </c:forEach>
             </div>
         </c:forEach>
