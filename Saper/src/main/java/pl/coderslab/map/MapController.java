@@ -31,7 +31,7 @@ public class MapController {
     @PostMapping("/easyMap")
     @ResponseBody
     public ResponseEntity<List<List<Area>>> postEasyMap(@RequestBody Area area) {
-        Map map = mapGenerator.createMap(area,8,8);
+        Map map = mapGenerator.createMap(area,8,8,10);
         return ResponseEntity.ok(map.getBoard());
     }
 }

@@ -10,46 +10,41 @@
 <html>
 <head>
     <title>Title</title>
-
-   <style>
-
-       .square {
-           width: 20px;
-           height: 20px;
-           background-color: rgb(128, 128, 128);
-           float: left;
-           margin: 1px;
-       }
-
-
-
-       .row {
-           clear: both;
-       }
-
-       .bomb {
-           background-color: black;
-
-       }
-
-       .number {
-           background-color: yellow;
-       }
-
-
-   </style>
+    <link rel="stylesheet" type="text/css" href="/static/css/mapView.css">
 </head>
-<body>
-    <div>
-      <c:forEach var="row" begin="0" end="7">
-            <div class="row">
-                <c:forEach var="col" begin="0" end="7">
-                    <div>
-                    <button class="square button" data-y="${row}" data-x="${col}"></button>
+<body >
+    <div style="display: none" id="dificulty" dificulty="easyMap"></div>
+
+    <div class="boardWrapper2">
+        <div id="boardBody" class="boardBody">
+            <div class="infoWarper">
+                <div class="boardInfo">
+                    <div    class="boardWrapper">
+                    <div id="bombCounter" class="textInfo"></div>
                     </div>
-                </c:forEach>
+                    <div    class="boardWrapper">
+                    <div id="timer" class="textInfo">000</div>
+                    </div>
+                </div>
             </div>
-        </c:forEach>
+            <div class="boardWrapper">
+                <div  class="boardBack">
+                    <c:forEach var="row" begin="0" end="7">
+                        <div class="row">
+                            <c:forEach var="col" begin="0" end="7">
+                                <div>
+                                    <button class="square button" data-y="${row}" data-x="${col}"></button>
+                                </div>
+                             </c:forEach>
+                        </div>
+                    </c:forEach>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="winBoard">
+
     </div>
 <script src="/static/js/app.js"></script>
 </body>

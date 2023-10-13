@@ -1,0 +1,152 @@
+
+.square {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(128, 128, 128);
+    float: left;
+    margin: 1px;
+    text-align: center;
+    line-height: 30px;
+    user-select: none;
+    position: relative;
+}
+
+.boardBody {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 340px;
+    background-color: grey;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.boardBack {
+    width: 260px;
+    height: 260px;
+    display: flex;
+    background-color:  black;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(192, 192, 192, 0.7) 50%, rgba(192, 192, 192, 0.7) 100%);
+    margin-bottom: 10px;
+}
+
+.boardWrapper2{
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 286px;
+    height: 346px;
+    background: linear-gradient(to bottom right, rgba(192, 192, 192, 0.7) 0%, rgba(192, 192, 192, 0.7) 50%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%);
+    margin-bottom: 10px;
+}
+
+.boardInfo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+.textInfo {
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: black;
+    color: darkred;
+
+}
+
+.banner{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0);
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.square.number {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.square.number[number="1"] {
+    color: blue;
+}
+
+.square.number[number="2"] {
+    color: green;
+}
+
+.square.number[number="3"] {
+    color: orangered;
+}
+
+.square.number[number="4"] {
+    color: darkblue;
+}
+
+.square.number[number="5"] {
+    color: darkred;
+}
+
+.square.number[number="6"] {
+    color: darkcyan;
+}
+
+.square.number[number="7"] {
+    color: black;
+}
+
+.square.number[number="8"] {
+    color: saddlebrown;
+}
+
+
+.row {
+    clear: both;
+}
+
+
+

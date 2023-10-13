@@ -11,7 +11,7 @@ import java.util.Random;
 @Component
 public class MapGenerator {
 
-    public Map createMap(Area clickArea, int sizex, int sizey) {
+    public Map createMap(Area clickArea, int sizex, int sizey , int bombs) {
         List<List<Area>> board = new ArrayList<>();
         for (int y = 0; y <= sizey -1 ; y++ ) {
             List<Area> line = new ArrayList<>();
@@ -26,7 +26,7 @@ public class MapGenerator {
         board.set(clickArea.getY(),line);
         board = checkAroundAreaAndModify(board, clickArea);
 
-        board = mineGenerator(board,10);
+        board = mineGenerator(board,bombs);
 
 
         Map map = new Map(board,"easy");
