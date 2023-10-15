@@ -20,7 +20,7 @@
             <div class="infoWarper">
                 <div class="boardInfo">
                     <div    class="boardWrapper">
-                    <div id="bombCounter" class="textInfo"></div>
+                    <div id="bombCounter" class="textInfo">010</div>
                     </div>
                     <div    class="boardWrapper">
                     <div id="timer" class="textInfo">000</div>
@@ -42,10 +42,12 @@
             </div>
         </div>
     </div>
+        <div id="winBoard" class="winBoard" style="display: none">
+            <a  href="easyMap" ><button class="menuButton">Nowa Gra</button></a>
+            <button class="menuButton">Zapisz Wynik</button>
+            <button class="menuButton">Menu</button>
+        </div>
 
-    <div class="winBoard">
-
-    </div>
 <script src="/static/js/app.js"></script>
 </body>
 </html>

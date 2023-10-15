@@ -3,7 +3,8 @@ let board;
 let safeArea = 0;
 const dificultyDiv = document.getElementById('dificulty')
 let dificulty = dificultyDiv.getAttribute("dificulty")
-console.log(dificulty)
+
+
 
 Array.from(buttons).forEach((button) => {
     button.addEventListener("contextmenu", function (event) {
@@ -24,7 +25,6 @@ function whenClicked() {
     if (board) {
         handleClick(this)
     } else {
-        console.log("Brak danych w board");
         getMap(this)
     }
 }
@@ -35,8 +35,16 @@ function handleClick(button) {
     button.style.display = "none";
     const square = button.nextElementSibling;
     square.style.display = "block";
+    console.log(safeArea)
    if (!square.classList.contains("bomb")) {
        safeArea--
+       console.log(safeArea)
+       if (safeArea == 0) {
+           const menu = document.getElementById("winBoard")
+           menu.style.display = '';
+           document.body.classList.add('background-visible');
+
+       }
    }else {
        button.nextElementSibling.style.backgroundColor = "red";
        Array.from(buttons).forEach((button) => {
@@ -223,10 +231,8 @@ boardBack.addEventListener("contextmenu" ,function (event) {
 } )
 
 const bombCounter = document.getElementById("bombCounter")
-let bombs;
-if (dificulty === "easyMap") {
-    bombs = 10
-}
+let bombs = bombCounter.innerText;
+
 
 function formatCounter(bombs) {
     if (bombs >= 0) {
