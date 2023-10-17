@@ -1,3 +1,9 @@
+body {
+    background-image: url('/static/img/background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 body::before {
     content: "";
     position: fixed;
@@ -18,7 +24,7 @@ body::before {
 .square {
     width: 30px;
     height: 30px;
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(215, 211, 211);
     float: left;
     margin: 1px;
     text-align: center;
@@ -27,10 +33,10 @@ body::before {
     position: relative;
 }
 
-.winBoard {
-    background-color: rgb(128, 128, 128);
-    width: 250px;
-    height: 200px;
+.menuBoard {
+    background-color: rgb(215, 211, 211);
+    width: 350px;
+    height: 400px;
     position: fixed;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -44,7 +50,7 @@ body::before {
 }
 
 .menuButton {
-    background-color: grey;
+    background-color: #ffffff;
     width: 200px;
     height: 50px;
     margin: 10px;
@@ -63,7 +69,7 @@ body::before {
     transform: translate(-50%, -50%);
     width: 280px;
     height: 340px;
-    background-color: grey;
+    background-color: #ffffff;
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -77,7 +83,7 @@ body::before {
     width: 260px;
     height: 260px;
     display: flex;
-    background-color:  black;
+    background-color: #989191;
     justify-content: center;
     align-items: center;
 }
@@ -90,7 +96,7 @@ body::before {
     padding-left: 3px;
     padding-bottom: 3px;
     padding-right: 3px;
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(192, 192, 192, 0.7) 50%, rgba(192, 192, 192, 0.7) 100%);
+    background: linear-gradient(to bottom right, rgb(152, 145, 145) 0%, rgb(152, 145, 145) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
     margin-bottom: 10px;
 }
 
@@ -104,7 +110,7 @@ body::before {
     align-items: center;
     width: 286px;
     height: 346px;
-    background: linear-gradient(to bottom right, rgba(192, 192, 192, 0.7) 0%, rgba(192, 192, 192, 0.7) 50%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(to bottom right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 50%, rgba(192, 192, 192, 0.7) 50%, rgb(152, 145, 145) 100%);
     margin-bottom: 10px;
 }
 
@@ -120,14 +126,28 @@ body::before {
     margin: 0 auto;
 }
 
+.winForm{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 22px;
+    color: #050505;
+}
+.winForm a {
+    margin: 10px 0;
+}
+
 
 
 .textInfo {
     margin: 0 auto;
     font-weight: bold;
     font-size: 22px;
-    background-color: black;
-    color: darkred;
+    background-color: #d7d3d3;
+    color: #050505;
 
 }
 

@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.coderslab.map;
 
 public class Area {
     private int x;

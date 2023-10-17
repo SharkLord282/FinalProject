@@ -1,17 +1,16 @@
 package pl.coderslab;
 
 import pl.coderslab.map.MapGenerator;
+import pl.coderslab.score.ScoreDao;
 
 import java.util.List;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Random random = new Random();
+        ScoreDao scoreDao = new ScoreDao();
 
-
-
-        System.out.println("*".repeat(10));
+        System.out.println(scoreDao.bestTenScore());
 
     }
 }

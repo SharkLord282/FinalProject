@@ -35,18 +35,37 @@ function handleClick(button) {
     button.style.display = "none";
     const square = button.nextElementSibling;
     square.style.display = "block";
-    console.log(safeArea)
+
+
    if (!square.classList.contains("bomb")) {
        safeArea--
-       console.log(safeArea)
-       if (safeArea == 0) {
+       if (safeArea == 0) { //W tej sytułacji gracz wygrywa
            const menu = document.getElementById("winBoard")
+           const winText = document.getElementById("winText")
+           const gameTime = document.getElementById("gameTime")
            menu.style.display = '';
            document.body.classList.add('background-visible');
-
+            stopTimer()
+           let minutes = 0;
+           let seconds = 0;
+            while (time >= 60) {
+                time - 60
+                minutes++
+            }
+            seconds = time
+           winText.innerText = "Twój czas to " + minutes + ":" + seconds + "s"
+            gameTime.value = minutes * 60 * 1000 + seconds * 1000
        }
-   }else {
+
+
+   }else { //W tej sytułacji gracz przegrywa
        button.nextElementSibling.style.backgroundColor = "red";
+       document.body.classList.add('background-visible');
+       const menu = document.getElementById("lossBoard")
+       const repeatGameButton = document.getElementById("repeatGame")
+       repeatGameButton.addEventListener("click", repeatGame)
+       menu.style.display = '';
+       stopTimer()
        Array.from(buttons).forEach((button) => {
            if (button.nextElementSibling.classList.contains("bomb")) {
                button.style.display = "none";
@@ -54,8 +73,13 @@ function handleClick(button) {
            } else {
                button.disabled = true;
            }
+
        })
+
    }
+
+
+   //odkrywanie kwadratów znajdujących się obok
     if(button.nextElementSibling.classList.contains("emptySpace") || (button.nextElementSibling.classList.contains("click") && button.nextElementSibling.getAttribute("number") == 0)) {
         let x = parseInt(button.getAttribute('data-x'));
         let y = parseInt(button.getAttribute('data-y'));
@@ -125,11 +149,10 @@ function handleClick(button) {
                 click.click()
             }
         }
-
     }
-
-
 }
+
+
 
 function handleRightClick(button) {
 
@@ -149,6 +172,7 @@ function handleRightClick(button) {
             const div = document.createElement('div')
             div.classList.add("square")
             div.classList.add("text")
+            div.classList.add("?")
             div.innerText = "?"
             button.appendChild(div)
             button.removeChild(img)
@@ -159,6 +183,37 @@ function handleRightClick(button) {
     } else {
         button.removeChild(button.firstChild)
     }
+}
+
+
+
+function repeatGame() {
+    Array.from(buttons).forEach((button) => {
+        if (button.style.display == "none" && !button.nextElementSibling.classList.contains("bomb") ) {
+            safeArea++
+        }
+        button.style.display = "block";
+        button.nextElementSibling.style.display = "none";
+        button.disabled = false;
+        if (button.hasChildNodes()) {
+
+            if(button.firstElementChild.classList.contains("banner")) {
+                bombs++
+                bombCounter.innerText = formatCounter(bombs)
+            }
+            button.removeChild(button.firstChild)
+        }
+    })
+
+    const menu = document.getElementById("lossBoard")
+    menu.style.display = 'none';
+    document.body.classList.remove('background-visible');
+    const saveResult = document.getElementById("saveResult")
+    saveResult.style.display = "none";
+    const fakeResult = document.getElementById("fakeSaveResult")
+    fakeResult.style.display = "";
+    resetTime()
+    startTimer()
 }
 
 function getMap(button) {
@@ -187,8 +242,9 @@ function getMap(button) {
             console.error('Błąd:', error);
         });
 
-
 }
+
+
 
 function generateMap(paramx,paramy) {
 
@@ -225,6 +281,8 @@ function generateMap(paramx,paramy) {
        click.click()
 }
 
+
+
 const boardBack = document.getElementById("boardBody")
 boardBack.addEventListener("contextmenu" ,function (event) {
     event.preventDefault()
@@ -243,11 +301,13 @@ function formatCounter(bombs) {
 }
 bombCounter.innerText = formatCounter(bombs);
 
-let seconds = 0
+
+
+let time  = 0
 let timeInterval
 function startTimer() {
     timeInterval = setInterval(function () {
-        seconds++
+        time++
         updateTime()
     },1000)
 
@@ -258,12 +318,12 @@ function stopTimer() {
 }
 
 function resetTime() {
-    seconds = 0
+    time = 0
     updateTime()
 }
 
 function updateTime() {
     const timer = document.getElementById("timer");
-    timer.innerText = seconds.toString().padStart(3,`0`);
+    timer.innerText = time .toString().padStart(3,`0`);
 }
 

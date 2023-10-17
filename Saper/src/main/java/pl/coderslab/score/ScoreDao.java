@@ -1,0 +1,28 @@
+package pl.coderslab.score;
+
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+import java.util.List;
+
+@Repository
+@Transactional
+public class ScoreDao {
+
+    @PersistenceContext
+    EntityManager  entityManager;
+
+    public void saveScore(Score score) {
+        entityManager.persist(score);
+    }
+
+    public List<Score> bestTenScore() {
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s ORDER BY s.time ASC", Score.class);
+        List<Score> scoreList = query.getResultList();
+        return scoreList;
+    }
+
+}

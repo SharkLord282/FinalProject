@@ -10,10 +10,10 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/mapView.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/brightMapView.css">
 </head>
 <body >
-    <div style="display: none" id="dificulty" dificulty="easyMap"></div>
+    <div style="display: none" id="dificulty" dificulty="easy"></div>
 
     <div class="boardWrapper2">
         <div id="boardBody" class="boardBody">
@@ -42,11 +42,26 @@
             </div>
         </div>
     </div>
-        <div id="winBoard" class="winBoard" style="display: none">
-            <a  href="easyMap" ><button class="menuButton">Nowa Gra</button></a>
-            <button class="menuButton">Zapisz Wynik</button>
-            <button class="menuButton">Menu</button>
+        <div id="winBoard" class="menuBoard" style="display: none">
+            <form method="post" action="scoreList" class="winForm">
+                <a>Gratulację</a>
+                <a id="winText">Twój czas to </a>
+                <a>Wprowadź swój nick</a>
+                <input type="text" name="nickName"/>
+                <input type="number" name="gameTime"   id="gameTime" value="" style="display: none;" />
+                <button type="submit" id="saveResult" class="menuButton">Zapisz Wynik</button>
+            </form>
+
+            <a href="https://www.youtube.com/watch?v=BBJa32lCaaY&autoplay=1" id="fakeSaveResult" style="display: none"><button class="menuButton" >Zapisz Wynik</button></a>
+            <a  href="easy"  ><button class="menuButton">Nowa Gra</button></a>
+            <a  href="/saper" ><button class="menuButton">Menu</button></a>
+
         </div>
+    <div id="lossBoard" class="menuBoard" style="display: none">
+        <a  href="easy" ><button class="menuButton">Nowa Gra</button></a>
+        <button id="repeatGame" class="menuButton">Powtórz Rozgrywkę</button>
+        <a  href="/saper" ><button class="menuButton">Menu</button></a>
+    </div>
 
 <script src="/static/js/app.js"></script>
 </body>
