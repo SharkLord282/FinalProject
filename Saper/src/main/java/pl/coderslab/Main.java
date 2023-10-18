@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         ScoreDao scoreDao = new ScoreDao();
 
-        System.out.println(scoreDao.bestTenScore());
+        System.out.println(scoreDao.bestTenEasyScore());
 
     }
 }

@@ -19,8 +19,8 @@ public class ScoreDao {
         entityManager.persist(score);
     }
 
-    public List<Score> bestTenScore() {
-        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s ORDER BY s.time ASC", Score.class);
+    public List<Score> bestTenEasyScore() {
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'easy' ORDER BY s.time ASC ", Score.class);
         List<Score> scoreList = query.getResultList();
         return scoreList;
     }

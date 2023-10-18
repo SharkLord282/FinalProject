@@ -49,6 +49,7 @@
                 <a>Wprowadź swój nick</a>
                 <input type="text" name="nickName"/>
                 <input type="number" name="gameTime"   id="gameTime" value="" style="display: none;" />
+                <input type="text" name="dificulty" value="easy" style="display: none;"/>
                 <button type="submit" id="saveResult" class="menuButton">Zapisz Wynik</button>
             </form>
 

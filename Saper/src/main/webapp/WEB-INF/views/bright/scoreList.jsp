@@ -10,24 +10,38 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/brightTable.css">
 </head>
 <body>
 <div>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ taglib prefix="co" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     <table>
         <tr>
             <th>Nr</th>
             <th>Nazwa</th>
             <th>Czas</th>
         </tr>
-        <c:forEach items="${scors}" var="score" varStatus="loop">
-            <tr>
-                <td>${loop.index + 1}</td>
-                <td>${score.nickName}</td>
-                <td><p class="time">${score.time}</p></td>
-            </tr>
+        <c:forEach varStatus="loop" begin="0" end="9">
+            <c:choose>
+                <c:when test="${loop.index < fn:length(scors)}">
+                    <tr>
+                        <td>${loop.index + 1}</td>
+                        <td>${scors[loop.index].nickName}</td>
+                        <td><p class="time">${scors[loop.index].time}</p></td>
+                    </tr>
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td>${loop.index + 1}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
         </c:forEach>
     </table>
+    <a  href="/saper" ><button class="menuButton">Menu</button></a>
 </div>
 <script>
     const gameTime = document.getElementsByClassName('time')

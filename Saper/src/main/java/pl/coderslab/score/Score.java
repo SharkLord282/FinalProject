@@ -18,10 +18,14 @@ public class Score {
 
     private int time;
 
-    public Score(String nickName, int time) {
+    public String dificulty;
+
+    public Score(String nickName, int time, String dificulty) {
         this.nickName = nickName;
         this.time = time;
+        this.dificulty = dificulty;
     }
+
 
     public Score(){}
 

@@ -46,13 +46,13 @@ public class SaperController {
 
     @GetMapping("/scoreList")
     public String scoreList(Model model) {
-        model.addAttribute("scors", scoreDao.bestTenScore());
+        model.addAttribute("scors", scoreDao.bestTenEasyScore());
         return "bright/scoreList";
     }
 
     @PostMapping("/scoreList")
-    public String addScore(@RequestParam String nickName,@RequestParam int gameTime) {
-        Score score = new Score(nickName,gameTime);
+    public String addScore(@RequestParam String nickName,@RequestParam int gameTime, @RequestParam String dificulty) {
+        Score score = new Score(nickName,gameTime, dificulty);
         scoreDao.saveScore(score);
         return "redirect: /saper/scoreList";
     }
