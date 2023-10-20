@@ -25,4 +25,16 @@ public class ScoreDao {
         return scoreList;
     }
 
+    public List<Score> bestTenNormalScore() {
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'normal' ORDER BY s.time ASC ", Score.class);
+        List<Score> scoreList = query.getResultList();
+        return scoreList;
+    }
+
+    public List<Score> bestTenHardScore() {
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'hard' ORDER BY s.time ASC ", Score.class);
+        List<Score> scoreList = query.getResultList();
+        return scoreList;
+    }
+
 }

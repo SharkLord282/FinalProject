@@ -5,20 +5,25 @@ import java.util.List;
 
 public class Map {
 
-    private List<List<Area>> board;
     private String difficulty;
 
-    public Map(List<List<Area>> board, String difficulty) {
-        this.board = board;
+    private int  xSize;
+
+    private int ySize;
+
+    private String viewMode;
+
+    public Map( String difficulty, int xSize, int ySize, String viewMode) {
+
         this.difficulty = difficulty;
+        this.xSize = xSize;
+        this.ySize = ySize;
+        this.viewMode = viewMode;
     }
 
-    public List<List<Area>> getBoard() {
-        return board;
-    }
 
-    public void setBoard(List<List<Area>> board) {
-        this.board = board;
+    public Map(){
+
     }
 
     public String getDifficulty() {
@@ -27,5 +32,29 @@ public class Map {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public int getxSize() {
+        return xSize;
+    }
+
+    public void setxSize(int xSize) {
+        this.xSize = xSize;
+    }
+
+    public int getySize() {
+        return ySize;
+    }
+
+    public void setySize(int ySize) {
+        this.ySize = ySize;
+    }
+
+    public String getVievMode() {
+        return viewMode;
+    }
+
+    public void setVievMode(String vievMode) {
+        this.viewMode = vievMode;
     }
 }

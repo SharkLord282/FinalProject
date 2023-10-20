@@ -3,7 +3,11 @@ let board;
 let safeArea = 0;
 const dificultyDiv = document.getElementById('dificulty')
 let dificulty = dificultyDiv.getAttribute("dificulty")
-
+let viewModeDiv = document.getElementById("viewMode")
+let viewMode = viewModeDiv.getAttribute("viewMode")
+let link = "/static/css/" + viewMode + "/" + dificulty + ".css"
+console.log(link)
+document.write('<link rel="stylesheet" type="text/css" href="'+link+'">');
 
 
 Array.from(buttons).forEach((button) => {
@@ -49,7 +53,7 @@ function handleClick(button) {
            let minutes = 0;
            let seconds = 0;
             while (time >= 60) {
-                time - 60
+                time = time - 60
                 minutes++
             }
             seconds = time

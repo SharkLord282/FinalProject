@@ -10,7 +10,7 @@ import java.util.Random;
 @Component
 public class MapGenerator {
 
-    public Map createMap(Area clickArea, int sizex, int sizey , int bombs) {
+    public List<List<Area>> createMap(Area clickArea, int sizex, int sizey , int bombs) {
         List<List<Area>> board = new ArrayList<>();
         for (int y = 0; y <= sizey -1 ; y++ ) {
             List<Area> line = new ArrayList<>();
@@ -27,9 +27,7 @@ public class MapGenerator {
 
         board = mineGenerator(board,bombs);
 
-
-        Map map = new Map(board,"easy");
-        return map;
+        return board;
     }
 
     public List<List<Area>> mineGenerator(List<List<Area>> board,int quantity){
@@ -56,7 +54,7 @@ public class MapGenerator {
     }
 
     public List<List<Area>> checkAroundAreaAndModify(List<List<Area>> board, Area area){
-        List<Area> line = board.get(area.getX());
+        List<Area> line = board.get(area.getY());
 
         if  (area.getX()-1 >=0  && area.getY()-1 >=0) {
            board = modifyArea(board, area, area.getX()-1,area.getY()-1 );
@@ -64,22 +62,22 @@ public class MapGenerator {
         if (area.getX()-1 >=0 ) {
             board = modifyArea(board, area, area.getX()-1,area.getY() );
         }
-        if (area.getX()-1 >=0 && area.getY()+1 < line.size()) {
+        if (area.getX()-1 >=0 && area.getY()+1 < board.size()) {
             board = modifyArea(board, area, area.getX()-1,area.getY()+1 );
         }
         if ( area.getY()-1 >=0) {
             board = modifyArea(board, area, area.getX(),area.getY()-1 );
         }
-        if (area.getY()+1 < line.size()) {
+        if (area.getY()+1 < board.size()) {
             board = modifyArea(board, area, area.getX(),area.getY()+1 );
         }
-        if (area.getX()+1 < board.size()&& area.getY()-1 >=0) {
+        if (area.getX()+1 < line.size()&& area.getY()-1 >=0) {
             board = modifyArea(board, area, area.getX()+1,area.getY()-1 );
         }
-        if (area.getX()+1 < board.size() ) {
+        if (area.getX()+1 < line.size() ) {
             board = modifyArea(board, area, area.getX()+1,area.getY() );
         }
-        if (area.getX()+1 < board.size() && area.getY()+1 < line.size()) {
+        if (area.getX()+1 < line.size() && area.getY()+1 < board.size()) {
             board = modifyArea(board, area, area.getX()+1,area.getY()+1 );
         }
         return board;

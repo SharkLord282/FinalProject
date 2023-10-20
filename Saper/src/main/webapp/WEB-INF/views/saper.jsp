@@ -10,11 +10,11 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/brightMapView.css">
+
 </head>
 <body >
-    <div style="display: none" id="dificulty" dificulty="easy"></div>
-
+    <div style="display: none" id="dificulty" dificulty="${map.difficulty}"></div>
+    <div style="display: none;" id="viewMode" viewMode="${map.vievMode}"></div>
     <div class="boardWrapper2">
         <div id="boardBody" class="boardBody">
             <div class="infoWarper">
@@ -29,11 +29,11 @@
             </div>
             <div class="boardWrapper">
                 <div  class="boardBack">
-                    <c:forEach var="row" begin="0" end="7">
+                    <c:forEach var="row" begin="0" end="${map.xSize}">
                         <div class="row">
-                            <c:forEach var="col" begin="0" end="7">
+                            <c:forEach var="col" begin="0" end="${map.ySize}">
                                 <div>
-                                    <button class="square button" data-y="${row}" data-x="${col}"></button>
+                                    <button class="square button" data-y="${col}" data-x="${row}"></button>
                                 </div>
                              </c:forEach>
                         </div>
@@ -49,7 +49,7 @@
                 <a>Wprowadź swój nick</a>
                 <input type="text" name="nickName"/>
                 <input type="number" name="gameTime"   id="gameTime" value="" style="display: none;" />
-                <input type="text" name="dificulty" value="easy" style="display: none;"/>
+                <input type="text" name="dificulty" value="${map.difficulty}" style="display: none;"/>
                 <button type="submit" id="saveResult" class="menuButton">Zapisz Wynik</button>
             </form>
 

@@ -9,15 +9,20 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/brightMenu.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bright/menu.css">
 </head>
 <body>
 <div class="menuBoard">
     <a href="saper/easy"><button class="menuButton"> Łatwa Gra</button></a>
-    <a href="saper/easy"><button class="menuButton">Średnia Gra</button></a>
-    <a href="saper/easy"><button class="menuButton">Trudna Gra</button></a>
-    <a href="saper/easy"><button class="menuButton">Opcje</button></a>
+    <a href="saper/normal"><button class="menuButton">Średnia Gra</button></a>
+    <a href="saper/hard"><button class="menuButton">Trudna Gra</button></a>
+    <a href="saper/options"><button class="menuButton">Opcje</button></a>
     <a href="saper/scoreList"><button class="menuButton">Tablica Wyników</button></a>
 </div>
+
+<script>
+    let link = "/static/css/" + "${viewModel}" + "/menu.css"
+    document.write('<link rel="stylesheet" type="text/css" href="'+link+'">');
+</script>
 </body>
 </html>
