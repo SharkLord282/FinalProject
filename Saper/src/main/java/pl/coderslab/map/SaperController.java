@@ -19,7 +19,7 @@ import java.util.List;
 public class SaperController {
 
     public MapGenerator mapGenerator;
-    private Area area;
+
     private final ScoreDao scoreDao;
 
     @Autowired

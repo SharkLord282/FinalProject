@@ -13,11 +13,11 @@
 </head>
 <body>
 <div class="menuBoard">
-    <a href="saper/easy"><button class="menuButton"> Łatwa Gra</button></a>
-    <a href="saper/normal"><button class="menuButton">Średnia Gra</button></a>
-    <a href="saper/hard"><button class="menuButton">Trudna Gra</button></a>
-    <a href="saper/options"><button class="menuButton">Opcje</button></a>
-    <a href="saper/scoreList"><button class="menuButton">Tablica Wyników</button></a>
+    <a href="/saper/easy"><button class="menuButton"> Łatwa Gra</button></a>
+    <a href="/saper/normal"><button class="menuButton">Średnia Gra</button></a>
+    <a href="/saper/hard"><button class="menuButton">Trudna Gra</button></a>
+    <a href="/saper/options"><button class="menuButton">Opcje</button></a>
+    <a href="/saper/scoreList"><button class="menuButton">Tablica Wyników</button></a>
 </div>
 
 <script>
