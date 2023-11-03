@@ -8,7 +8,7 @@ import pl.coderslab.score.ScoreDao;
 import java.util.List;
 import java.util.Random;
 
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
        MapGenerator mapGenerator = new MapGenerator();
        Area area = new Area(27,6,"click",0);
@@ -16,4 +16,6 @@ public class Main {
         System.out.println(board);
 
     }
+
+
 }
