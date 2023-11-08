@@ -1,9 +1,8 @@
-package pl.coderslab.config;
+package pl.saper.config;
 
 
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import pl.coderslab.AppConfig;
+import pl.saper.AppConfig;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

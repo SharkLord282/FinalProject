@@ -1,6 +1,4 @@
-package pl.coderslab.map;
-
-import java.util.List;
+package pl.saper.map;
 
 
 public class Map {

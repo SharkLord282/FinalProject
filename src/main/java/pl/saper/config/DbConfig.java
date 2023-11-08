@@ -1,4 +1,4 @@
-package pl.coderslab.config;
+package pl.saper.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

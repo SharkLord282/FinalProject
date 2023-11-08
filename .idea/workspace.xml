@@ -54,11 +54,11 @@
 }]]></component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.73">
     <configuration name="Main1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pl.coderslab.Main1" />
+      <option name="MAIN_CLASS_NAME" value="pl.saper.Main1" />
       <module name="FinalProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pl.coderslab.*" />
+          <option name="PATTERN" value="pl.saper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -184,7 +184,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699036197983</updated>
-      <workItem from="1699036197985" duration="1342000" />
+      <workItem from="1699036197985" duration="2019000" />
     </task>
     <servers />
   </component>

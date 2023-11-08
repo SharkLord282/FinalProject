@@ -1,9 +1,8 @@
-package pl.coderslab.score;
+package pl.saper.score;
 
 
 
 import javax.persistence.*;
-import java.sql.Time;
 
 
 @Entity

@@ -1,4 +1,4 @@
-package pl.coderslab.score;
+package pl.saper.score;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,12 +1,12 @@
-package pl.coderslab.map;
+package pl.saper.map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.score.Score;
-import pl.coderslab.score.ScoreDao;
+import pl.saper.score.Score;
+import pl.saper.score.ScoreDao;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

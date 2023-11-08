@@ -1,12 +1,9 @@
-package pl.coderslab;
+package pl.saper;
 
-import pl.coderslab.map.Area;
-import pl.coderslab.map.Map;
-import pl.coderslab.map.MapGenerator;
-import pl.coderslab.score.ScoreDao;
+import pl.saper.map.Area;
+import pl.saper.map.MapGenerator;
 
 import java.util.List;
-import java.util.Random;
 
 public class Main1 {
     public static void main(String[] args) {
