@@ -1,13 +1,14 @@
 package pl.saper.map;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 
-@Component
+@Service
 public class MapGenerator {
 
     public List<List<Area>> createMap(Area clickArea, int sizex, int sizey , int bombs) {
