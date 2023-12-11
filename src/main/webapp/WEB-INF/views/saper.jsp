@@ -13,8 +13,8 @@
 
 </head>
 <body >
-    <div style="display: none" id="dificulty" dificulty="${map.difficulty}"></div>
-    <div style="display: none;" id="viewMode" viewMode="${map.vievMode}"></div>
+    <div style="display: none" id="difficulty" difficulty="${map.difficulty}"></div>
+    <div style="display: none;" id="viewMode" viewMode="${map.viewMode}"></div>
     <div class="boardWrapper2">
         <div id="boardBody" class="boardBody">
             <div class="infoWarper">
@@ -29,9 +29,9 @@
             </div>
             <div class="boardWrapper">
                 <div  class="boardBack">
-                    <c:forEach var="row" begin="0" end="${map.xSize}">
+                    <c:forEach var="row" begin="0" end="${map.getXSize()}">
                         <div class="row">
-                            <c:forEach var="col" begin="0" end="${map.ySize}">
+                            <c:forEach var="col" begin="0" end="${map.getYSize()}">
                                 <div>
                                     <button class="square button" data-y="${col}" data-x="${row}"></button>
                                 </div>

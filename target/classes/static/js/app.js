@@ -1,8 +1,8 @@
 const buttons = document.getElementsByClassName("button")
 let board;
 let safeArea = 0;
-const dificultyDiv = document.getElementById('dificulty')
-let dificulty = dificultyDiv.getAttribute("dificulty")
+const dificultyDiv = document.getElementById('difficulty')
+let dificulty = dificultyDiv.getAttribute("difficulty")
 let viewModeDiv = document.getElementById("viewMode")
 let viewMode = viewModeDiv.getAttribute("viewMode")
 let link = "/static/css/" + viewMode + "/" + dificulty + ".css"
@@ -221,14 +221,18 @@ function repeatGame() {
 }
 
 function getMap(button) {
-    const paramx = button.getAttribute('data-x')
-    const paramy = button.getAttribute('data-y')
+
+    const paramx = parseInt(button.getAttribute('data-x'), 10);
+    const paramy = parseInt(button.getAttribute('data-y'), 10);
     const area = {
         x: paramx,
         y: paramy,
         name: "click",
         number: 0
     };
+
+    console.log(area)
+
     fetch('/saper/' + dificulty , {
         method: 'POST',
         headers: {
@@ -244,6 +248,7 @@ function getMap(button) {
         })
         .catch(error => {
             console.error('Błąd:', error);
+
         });
 
 }

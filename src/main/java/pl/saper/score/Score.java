@@ -1,12 +1,14 @@
 package pl.saper.score;
-
-
+import lombok.*;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "usersScore")
+@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+
 public class Score {
 
     @Id
@@ -14,41 +16,12 @@ public class Score {
     private long id;
 
     private String nickName;
-
     private int time;
+    public String difficulty;
 
-    public String dificulty;
-
-    public Score(String nickName, int time, String dificulty) {
+    public Score(String nickName, int time, String difficulty) {
         this.nickName = nickName;
         this.time = time;
-        this.dificulty = dificulty;
-    }
-
-
-    public Score(){}
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
+        this.difficulty = difficulty;
     }
 }

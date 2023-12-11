@@ -1,6 +1,7 @@
 package pl.saper.map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,8 +65,13 @@ public class SaperController {
     @PostMapping("/easy")
     @ResponseBody
     public ResponseEntity<List<List<Area>>> postEasyMap(@RequestBody Area area) {
-        List<List<Area>> board = mapGenerator.createMap(area,8,8,10);
-        return ResponseEntity.ok(board);
+        try {
+            List<List<Area>> board = mapGenerator.createMap(area, 8, 8, 10);
+            return ResponseEntity.ok(board);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GetMapping("/normal")

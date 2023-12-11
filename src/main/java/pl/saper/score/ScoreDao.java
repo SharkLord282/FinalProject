@@ -20,19 +20,19 @@ public class ScoreDao {
     }
 
     public List<Score> bestTenEasyScore() {
-        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'easy' ORDER BY s.time ASC ", Score.class);
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE difficulty = 'easy' ORDER BY s.time ASC ", Score.class);
         List<Score> scoreList = query.getResultList();
         return scoreList;
     }
 
     public List<Score> bestTenNormalScore() {
-        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'normal' ORDER BY s.time ASC ", Score.class);
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE difficulty = 'normal' ORDER BY s.time ASC ", Score.class);
         List<Score> scoreList = query.getResultList();
         return scoreList;
     }
 
     public List<Score> bestTenHardScore() {
-        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE dificulty = 'hard' ORDER BY s.time ASC ", Score.class);
+        TypedQuery<Score> query = entityManager.createQuery("SELECT s FROM Score s WHERE difficulty = 'hard' ORDER BY s.time ASC ", Score.class);
         List<Score> scoreList = query.getResultList();
         return scoreList;
     }
